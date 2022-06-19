@@ -1,0 +1,78 @@
+* {
+    font-family: 'Kanit', sans-serif;
+}
+
+b {
+    color: #818181;
+}
+
+.slide a,
+.dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+
+/* On mouse-over */
+
+
+/* b:hover {
+    color: #f1f1f1;
+} */
+
+.slide a:hover,
+.dropdown-btn:hover {
+    color: #f1f1f1;
+}
+
+
+/* .active {
+    background-color: rgb(255, 255, 255);
+    color: white;
+} */
+
+a:focus {
+    color: black;
+}
+
+
+/* a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 15px;
+    border-radius: 20px;
+}
+
+.dropdown-container a {
+    font-size: 16px;
+    padding-right: 10px;
+} */
+
+a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 15px;
+    border-radius: 20px;
+}
+
+.dropdown-container a {
+    font-size: 16px;
+    padding-right: 10px;
+}
+
+.astext {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}

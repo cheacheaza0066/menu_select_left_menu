@@ -1,0 +1,30 @@
+body {
+    background-color: #194e70;
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #2b3e51;
+}
+
+#login-form-wrap {
+    background-color: #fff;
+    width: 40%;
+    height: 360px;
+    margin: 80px auto;
+    text-align: center;
+    padding-top: 50px;
+    border-radius: 8px;
+    box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
+}
+
+.login-form {
+    padding: 0 60px;
+}
+
+.btn {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.input {
+    margin-top: 50px;
+}

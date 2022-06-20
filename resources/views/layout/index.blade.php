@@ -25,7 +25,10 @@
 
       <div class="container-fluid">
         <p class="navbar-brand text-white mb-0">Navbar</p>
-        
+        <form action="{{route('menuAll')}}" method="get">
+          <button style="margin-left: 800px" type="submit" class="astext  fs-5 d-none d-sm-inline text-white navbar-brand text-white mb-0">
+              <span class="ms-1">MANAGEMENT</span></button>
+      </form>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             

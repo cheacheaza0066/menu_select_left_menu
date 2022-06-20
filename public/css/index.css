@@ -106,15 +106,10 @@ a:focus {
     color: black;
 }
 
-
-/* a {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 15px;
-    border-radius: 20px;
+.astext {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
 }
-
-.dropdown-container a {
-    font-size: 16px;
-    padding-right: 10px;
-} */

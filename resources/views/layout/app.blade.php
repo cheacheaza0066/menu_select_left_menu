@@ -10,7 +10,7 @@
     <script src="{{ asset('js/script.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css" rel="stylesheet" />
@@ -25,7 +25,13 @@
 
       <div class="container-fluid">
         <p class="navbar-brand text-white mb-0">Navbar</p>
-
+        
+        {{-- <a href="{{route('menuAll')}}">Management</a> --}}
+        <form action="{{route('menuAll')}}" method="get">
+          <button style="margin-left: 800px" type="submit" class="astext  fs-5 d-none d-sm-inline text-white navbar-brand text-white mb-0">
+              <span class="ms-1">MANAGEMENT</span></button>
+      </form>
+        
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             

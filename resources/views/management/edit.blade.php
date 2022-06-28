@@ -16,7 +16,13 @@
             <div class="row mt-3" style="margin-left: 20px">
                 
                 <h1 class="text-center mb-3">อัพเดท มาตรฐาน</h1>
+
                 <div class="col-md-12">
+                    <a href="{{route('menuAll')}}" class="btn btn-primary my-2">กลับ</a>
+                    {{-- <form action="{{route('menuAll')}}" method="get">
+                        <button style="margin-left: 900px" type="submit" class="astext  fs-5 d-none d-sm-inline text-white navbar-brand text-white mb-0">
+                            <span class="ms-1">MANAGEMENT</span></button>
+                    </form> --}}
 
                     <div class="card">
                         <div class="card-header card text-white bg-success mb-1 showtext text-center">อัพเดท มาตรฐาน</div>

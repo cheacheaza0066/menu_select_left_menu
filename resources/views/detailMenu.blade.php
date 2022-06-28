@@ -1,6 +1,8 @@
 @extends('layout.app')
 @section('content')
 
+                                {{-- <i class="fa fa-caret-down mt-1" style="margin-left: 80px"></i> --}}
+
 
 <div class="container-fluid">
     <div class="row flex-nowrap">
@@ -17,22 +19,67 @@
                 </form>
 
                 <ul class="nav nav-pills flex-column mb-sm-auto mt-5 mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="my-2 ">
-                        <a href="javascript:toggleDiv('div1');" style="text-decoration: inherit; color: inherit;">
-                            <span class="text-white ms-3 fs-5"><b>Menu1</b></span>
-                        </a>
+                    @php
+                        $i=1;
                         
+                    @endphp
+                    @foreach($menuLeft_parent1 as $row)
+                    <li class="my-2 ">
+                        <a href="javascript:toggleDiv('div{{$i++}}');" style="text-decoration: inherit; color: inherit;">
+                            <span class="text-white ms-3 fs-5"><b>{{$row->title_menu}}</b></span>
+                        </a>
                     </li>
-                    <li class="my-2">
+                    @endforeach
+                        <li class="my-2">
+                            <div class="slide">
+                                <button class="dropdown-btn"><b>เมนูที่ 3</b>
+                                </button>
+                                    <div class="dropdown-container ms-3" style="display: none">
+                                        @foreach($menuLeft_parent2 as $row)
+
+                                            <a href="javascript:toggleDiv('div{{$i++}}');" style="text-decoration: inherit; color: inherit;">
+                                                <span class="small text-white ms-3 fs-6"><b>{{$row->title_menu}}</b></span>
+                                            </a>
+                                            @endforeach
+
+                                    </div>
+                            </div>   
+                        </li>  
+                            <li class="my-0">
+                                <div class="slide">
+                                    <button class="dropdown-btn"><b class="">เมนูที่ 4</b>
+                                    </button>
+                                        <div class="dropdown-container ms-3"style="display: none">
+                                        
+                                            <button class="dropdown-btn"><b style="margin-left: 10px">เมนู 4.1</b>
+                                            </button>
+                                                <div class="dropdown-container ms-5" style="display: none">
+                                                    @foreach($menuLeft_parent3 as $row)
+                                                        <a href="javascript:toggleDiv('div{{$i++}}');" style="text-decoration: inherit; color: inherit;">
+                                                            <span class="small text-white ms-3 fs-6"><b>{{$row->title_menu}}</b></span>
+                                                        </a>
+                                                    @endforeach
+                                                
+
+                                                </div>
+                                    
+                                        </div>
+                                            
+                                </div>   
+                            </li>  
+                    
+                   
+                   
+                    
+                    {{-- <li class="my-2">
                         <a style="text-decoration: inherit; color: inherit;"  href="javascript:toggleDiv('div2');">
                             <span class="text-white ms-3 fs-5"><b>Menu2</b></span>
                         </a> 
-                    </li>
+                    </li> --}}
                     
-                    <li class="my-2">
+                    {{-- <li class="my-2">
                         <div class="slide">
                             <button class="dropdown-btn"><b>Menu3</b>
-                                {{-- <i class="fa fa-caret-down mt-1" style="margin-left: 80px"></i> --}}
                             </button>
                                 <div class="dropdown-container ms-3" style="display: none">
                                     <a style="text-decoration: inherit; color: inherit;"  href="javascript:toggleDiv('div3');">
@@ -45,9 +92,9 @@
                            
                                 </div>
                         </div>   
-                    </li>  
+                    </li>   --}}
 
-                    <li class="my-0">
+                    {{-- <li class="my-0">
                         <div class="slide">
                             <button class="dropdown-btn"><b>Menu4</b>
                             </button>
@@ -72,7 +119,7 @@
                                 </div>
                                     
                         </div>   
-                    </li>  
+                    </li>   --}}
 
                     
                     
@@ -80,17 +127,50 @@
 
             </div>
         </div>
-        <div class="col py-3" style="background-color:#F0F8FF">
-            
-            <div class="toggle" id="div1">
+        @php
+            $b=1;
+        @endphp
+        
+
+        <div class="col py-3" style="background-color:#F0F8FF"  style="display: none">
+            <div class="toggle" id="div0" >
+                <p class="lcc-text mt-4">
+                    <h1 class="text-center">มาตรฐาน 1</h1>
+                </p>
+                <p class="mt-4">
+                    What is Lorem Ipsum?
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    Why do we use it?
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                    Where does it come from?
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin lit                </p>
+             </div>
+             {{-- @foreach($menu1 as $row1)
+                
+             <div class="toggle" id="div0">
                      <p class="lcc-text mt-4">
-                        <h1 class="text-center">MENU 1</h1>
-                    </p>
-                    <p class="lcc-text mt-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim dicta ut ad consequuntur, adipisci dolore deserunt aut hic placeat veritatis sunt quibusdam expedita architecto ipsa a iure omnis, similique itaque aliquid neque quia inventore. Blanditiis obcaecati minima nisi. At exercitationem asperiores odio unde placeat quidem cupiditate pariatur quia? Ad error dignissimos possimus, illo repellendus unde dolore inventore tempore aliquam, perferendis blanditiis maiores ea tenetur voluptatibus animi tempora earum cumque quasi minima ut! Ratione illo pariatur atque molestiae facilis, cum illum voluptate, delectus alias beatae iure fuga rerum explicabo quod, ipsam quos saepe eos nam consequuntur. Molestias, vel unde quam quod, in ipsum facilis harum ex blanditiis reiciendis commodi esse cupiditate repellat rem hic soluta vitae debitis placeat aliquid ratione nobis? Suscipit eos architecto soluta quasi autem deleniti optio alias placeat harum ipsum assumenda hic debitis quos vel laboriosam distinctio, earum qui. Voluptas delectus velit eius itaque quibusdam est, facilis inventore nesciunt numquam nihil veritatis magni voluptatibus ab earum corrupti esse, sunt accusantium dolorem ipsum debitis recusandae in. Laboriosam dicta accusantium nihil sed saepe, iusto culpa, fugiat nobis rem maxime voluptatum voluptates earum doloremque laborum repudiandae. Cupiditate consequatur aperiam quibusdam assumenda! In ipsa ipsam provident, repellat corporis reiciendis modi nesciunt quisquam sunt, quis sequi voluptatum tenetur, repellendus eum porro animi. Quidem veritatis cumque fugit alias facilis repudiandae necessitatibus aut at dolore iste possimus aspernatur recusandae animi pariatur assumenda, omnis, libero earum quos commodi quod velit sit? Quo assumenda blanditiis cum fugiat nesciunt nostrum distinctio explicabo, officia recusandae laboriosam labore ratione impedit ex nihil cumque deserunt inventore architecto maiores reiciendis unde corrupti ea vero? Laboriosam numquam vero earum consectetur quidem quisquam porro quas tempore cumque accusantium minima tempora voluptatum nobis ipsam consequuntur dolores quibusdam asperiores, explicabo aut fugit a accusamus temporibus? Odio, ducimus? Dignissimos deserunt quia, quibusdam recusandae delectus doloribus voluptas omnis?
-                    </p>
-            </div>
-            <div class="toggle" id="div2" style="display: none">
+                         <h1 class="text-center">{{$row1->headContent}}</h1>
+                     </p>
+                     <p class="lcc-text mt-4">
+                         {{$row1->content}}
+                     </p>
+             </div>
+             @endforeach --}}
+
+            @foreach($menu as $row)
+                
+                    <div class="toggle" id="div{{$b++}}"style="display: none">
+                            <p class="lcc-text mt-4">
+                                <h1 class="text-center">{{$row->headContent}}</h1>
+                            </p>
+                            <p class="lcc-text mt-4">
+                                {{$row->content}}
+                            </p>
+                    </div>
+                    @endforeach
+                    
+                    
+            {{-- <div class="toggle" id="div2" style="display: none">
                 <p class="lcc-text mt-4">
                     <h1 class="text-center">MENU 2</h1>
                 </p>
@@ -144,7 +224,7 @@
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, ad fugiat dolorem voluptatum similique saepe accusantium, laudantium commodi animi necessitatibus reiciendis voluptate, architecto dolor neque eveniet aperiam alias iure modi sunt eos? Quis hic provident quia rerum iste molestias ratione!
                 </p>
-             </div>
+             </div> --}}
             
         </div>
 

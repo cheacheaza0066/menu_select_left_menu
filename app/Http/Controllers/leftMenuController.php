@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\leftmenu;
+use App\Models\menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,8 +16,11 @@ class leftMenuController extends Controller
      */
     public function index()
     {
-        $menu = leftmenu::paginate(5);
-        return view('management.index', compact('menu'));
+        //     $menuLeft =  DB::table('leftmenus')
+        //     ->select('leftmenus.title','menus.id')
+        //     ->join('menus','menus.id','=','leftmenus.menu_id')
+        //     ->get();
+        // return view('management.index', compact('menuLeft'));
     }
 
     /**
@@ -38,18 +42,18 @@ class leftMenuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => ['required'],
-            'headContent' => ['required'],
-            'content' => ['required'],
+            'title_menu' => ['required'],
+            'headContent_menu' => ['required'],
+            'content_menu' => ['required'],
 
         ]);
 
 
 
         $input = [
-            'title' => $request->title,
-            'headContent' => $request->headContent,
-            'content' => $request->content,
+            'title_menu' => $request->title_menu,
+            'headContent_menu' => $request->headContent_menu,
+            'content_menu' => $request->content_menu,
         ];
 
         // menu::insert($input); 
@@ -90,16 +94,11 @@ class leftMenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => ['required'],
-            'headContent' => ['required'],
-            'content' => ['required'],
-            
-        ]);
+        
             leftmenu::find($id)->update([
-                'title' => $request->title,
-                'headContent' => $request->headContent,
-                'content' => $request->content,
+                'title_menu' => $request->title_menu,
+                'headContent_menu' => $request->headContent_menu,
+                'content_menu' => $request->content_menu,
             ]);
             return redirect()->route('menuAll')->with('success',"อัพเดทเรียบร้อย");
     }

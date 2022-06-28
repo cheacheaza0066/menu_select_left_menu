@@ -16,4 +16,9 @@ class menu extends Model
         'content',
         'created_at',
     ];
+
+    // public function leftMenu()
+    // {
+    //     return $this->hasMany(leftmenu::class, 'id', 'leftmenu_id');
+    // }
 }

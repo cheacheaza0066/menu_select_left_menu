@@ -17,14 +17,34 @@ class menuController extends Controller
      */
     public function index()
     {
-        $menu = menu::paginate(5);
-        $menuLeft = leftmenu::paginate(5);           
-           
-        // return view('management.index',compact('menu'));
+        $menu = menu::paginate(10);
+        $leftmenu = leftmenu::paginate(10);
+        $menuLeft_parent1 = DB::table('leftmenus')
+            ->join('menus', 'menus.id', '=', 'leftmenus.menu_id')
+            ->select('leftmenus.*','menus.title','parent_id','menus.headContent','menus.content')
+            ->where('parent_id', '=', 1)
+            ->get(); 
+            $menuLeft_parent2 = DB::table('leftmenus')
+            ->join('menus', 'menus.id', '=', 'leftmenus.menu_id')
+            ->select('leftmenus.*','menus.title','parent_id','menus.headContent','menus.content')
+            ->where('parent_id', '=', 2)
+            ->get();
+            $menuLeft_parent3 = DB::table('leftmenus')
+            ->join('menus', 'menus.id', '=', 'leftmenus.menu_id')
+            ->select('leftmenus.*','menus.title','parent_id','menus.headContent','menus.content')
+            ->where('parent_id', '=', 3)
+            ->get();    
+            $menu1 = menu::all()->first()->get();
+
+
+
         return view('management.index')->with([
-            'menu' => menu::paginate(5),
-            'menuLeft' => leftmenu::paginate(5),
-           
+            'menu' => $menu ,
+            'leftmenu' => $leftmenu,
+            'menuLeft_parent1' => $menuLeft_parent1,
+            'menuLeft_parent2' => $menuLeft_parent2,
+            'menuLeft_parent3' => $menuLeft_parent3,
+            'menu1' => $menu1,
 
 
         ]);
@@ -33,8 +53,39 @@ class menuController extends Controller
 
 
     public function detail($id){
-        $data = menu::find($id);
-        return view('detailMenu',compact('data'));
+        $menuLeft_parent1 = DB::table('leftmenus')
+            ->join('menus', 'menus.id', '=', 'leftmenus.menu_id')
+            ->select('leftmenus.*','menus.title','parent_id','menus.headContent','menus.content')
+            ->where([
+                ['parent_id', '=', '1'],
+                ['menu_id', '=', $id],
+
+            ])->get(); 
+            $menuLeft_parent2 = DB::table('leftmenus')
+            ->join('menus', 'menus.id', '=', 'leftmenus.menu_id')
+            ->select('leftmenus.*','menus.title','parent_id','menus.headContent','menus.content')
+            ->where([
+                ['parent_id', '=', 2],
+                ['menu_id', '=', $id],
+            ])->get();
+            $menuLeft_parent3 = DB::table('leftmenus')
+            ->join('menus', 'menus.id', '=', 'leftmenus.menu_id')
+            ->select('leftmenus.*','menus.title','parent_id','menus.headContent','menus.content')
+            ->where([
+                ['parent_id', '=', 3],
+                ['menu_id', '=', $id],
+            ])->get();   
+       
+        return view('detailMenu')->with([
+            'data' => menu::find($id),
+            'menu' => menu::all(),
+            'menuLeft_parent1' => $menuLeft_parent1,
+            'menuLeft_parent2' => $menuLeft_parent2,
+            'menuLeft_parent3' => $menuLeft_parent3,
+           
+
+
+        ]);
     }
 
     /**
@@ -86,7 +137,7 @@ class menuController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -110,13 +161,8 @@ class menuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => ['required'],
-            'headContent' => ['required'],
-            'content' => ['required'],
-            
-        ]);
-            menu::find($id)->update([
+      
+           $update = menu::find($id)->update([
                 'title' => $request->title,
                 'headContent' => $request->headContent,
                 'content' => $request->content,

@@ -17,18 +17,22 @@
                 
                 <h1 class="text-center mb-3">อัพเดท เมนู</h1>
                 <div class="col-md-12">
-
+                    <a href="{{route('menuAll')}}" class="btn btn-primary my-2">กลับ</a>
+                    {{-- <form action="{{route('menuAll')}}" method="get">
+                        <button style="margin-left: 900px" type="submit" class="astext  fs-5 d-none d-sm-inline text-dark navbar-brand text-white mb-0">
+                            <span class="ms-1">MANAGEMENT</span></button>
+                    </form> --}}
                     <div class="card">
                         <div class="card-header card text-white bg-success mb-1 showtext text-center">อัพเดท เมนู</div>
                         <div class="card-body">
-                            <form action="{{url('/leftmenu/update/'.$leftmenu->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{url('/leftmenu/update/'.$leftmenu->id)}}" method="post">
     
                                 @csrf
 
                                 <div class="form-group">
-                                    <label for="title">ชื่อเมนู</label>
-                                    <textarea class="form-control" name="title" id="title" cols="30" rows="1">{{$leftmenu->title}}</textarea>
-                               @error('title')
+                                    <label for="title_menu">ชื่อเมนู</label>
+                                    <textarea class="form-control" name="title_menu" id="title_menu" cols="30" rows="1">{{$leftmenu->title_menu}}</textarea>
+                               @error('title_menu')
                                <div class="my-1">
                                <span class="text-danger py-2">{{$message}}</span>
                                </div>
@@ -36,9 +40,9 @@
                            </div>
            
                            <div class="form-group">
-                               <label for="headContent">หัวข้อ</label>
-                               <textarea class="form-control" name="headContent" id="headContent" cols="30" rows="1">{{$leftmenu->headContent}}</textarea>
-                          @error('headContent')
+                               <label for="headContent_menu">หัวข้อ</label>
+                               <textarea class="form-control" name="headContent_menu" id="headContent_menu" cols="30" rows="1">{{$leftmenu->headContent_menu}}</textarea>
+                          @error('headContent_menu')
                           <div class="my-1">
                           <span class="text-danger py-2">{{$message}}</span>
                           </div>
@@ -48,11 +52,11 @@
                            
            
                            <div class="form-group">
-                               <label for="content">เนื้อหา</label>
-                               <textarea class="form-control mb-3" name="content" id="content" cols="30" rows="7">{{$leftmenu->content}}</textarea>
+                               <label for="content_menu">เนื้อหา</label>
+                               <textarea class="form-control mb-3" name="content_menu" id="content_menu" cols="30" rows="7">{{$leftmenu->content_menu}}</textarea>
            
                               
-                                   @error('content')
+                                   @error('content_menu')
                                    <div class="my-1">
                                    <span class="text-danger py-2">{{$message}}</span>
                                    </div>

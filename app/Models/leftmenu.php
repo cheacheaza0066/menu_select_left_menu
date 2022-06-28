@@ -10,10 +10,15 @@ class leftmenu extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title',
+        'title_menu',
         // 'image',
-        'headContent',
-        'content',
+        'headContent_menu',
+        'content_menu',
         'created_at',
     ];
+
+    // public function menu()
+    // {
+    //     return $this->hasMany(menu::class, 'id', 'menu_id');
+    // }
 }

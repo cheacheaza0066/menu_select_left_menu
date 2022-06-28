@@ -32,6 +32,7 @@
                             <span class="text-white ms-3 fs-5"><b>เพิ่มเมนู</b></span>
                         </a> 
                     </li>
+                    
                 </ul>    
             </div>
         </div>
@@ -54,7 +55,6 @@
                                 <th scope="col"  style="width:50px" class="text-center">อัพเดท</th>
                                 <th scope="col"  style="width:50px" class="text-center">ลบ</th>
 
-                                {{-- <th scope="col">รูปภาพ</th> --}}
                               </tr>
                             </thead>
                             <tbody>
@@ -143,29 +143,37 @@
                 
                                                 <th scope="col"  style="width:50px" class="text-center">อัพเดท</th>
                                                 <th scope="col"  style="width:50px" class="text-center">ลบ</th>
-                                        
+
+
+                                                
+
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                @foreach ($menuLeft as $row)
+                                                @foreach ($leftmenu as $row)
                                                 <tr>
                                                     <td class="p-3">{{$row->id}}</td>
-                                                    <td class="p-3">{{Str::limit($row->title,100)}}</td>
-                                                    <td class="p-3">{{Str::limit($row->headContent,100)}}</td>
-                                                    <td class="p-3">{{Str::limit($row->content,150)}}</td>
-                
+                                                    <td class="p-3">{{Str::limit($row->title_menu,100)}}</td>
+                                                    <td class="p-3">{{Str::limit($row->headContent_menu,100)}}</td>
+                                                    <td class="p-3">{{Str::limit($row->content_menu,150)}}</td> 
+            
                                                     <td class="p-3"><a href="{{url('/leftmenu/edit/'.$row->id)}}" style="width: auto" class="btn btn-warning btn-sm">UPDATE</a></td>
                                                
                                                     <td class="p-3"><a href="{{url('/leftmenu/delete/'.$row->id)}}" style="width: auto" class="btn btn-danger btn-sm" onclick="return confirm('ต้องการลบข้อมูล ใช่ไหม ?')">DELETE</td>
                 
                                                   </tr>
+                                               
                                                 @endforeach
+                                               
+
+
+                                                   
                                             </tr>
                                            
                                             </tbody>
                                         </table>
                                         <div class="d-flex justify-content-center">
-                                        {{$menuLeft->links();}}
+                                        {{$leftmenu->links();}}
                                     </div>
                                     </div>
                                 </div>
@@ -181,9 +189,9 @@
                                         @csrf
                     
                                     <div class="form-group">
-                                             <label for="title">ชื่อเมนู</label>
-                                             <textarea class="form-control" name="title" id="title" cols="30" rows="1"></textarea>
-                                        @error('title')
+                                             <label for="title_menu">ชื่อเมนู</label>
+                                             <textarea class="form-control" name="title_menu" id="title_menu" cols="30" rows="1"></textarea>
+                                        @error('title_menu')
                                         <div class="my-1">
                                         <span class="text-danger py-2">{{$message}}</span>
                                         </div>
@@ -191,18 +199,18 @@
                                     </div>
                     
                                     <div class="form-group">
-                                        <label for="headContent">หัวข้อเมนู</label>
-                                        <textarea class="form-control" name="headContent" id="headContent" cols="30" rows="1"></textarea>
-                                   @error('headContent')
+                                        <label for="headContent_menu">หัวข้อเมนู</label>
+                                        <textarea class="form-control" name="headContent_menu" id="headContent_menu" cols="30" rows="1"></textarea>
+                                   @error('headContent_menu')
                                    <div class="my-1">
                                    <span class="text-danger py-2">{{$message}}</span>
                                    </div>
                                    @enderror
                                </div>
                                     <div class="form-group">
-                                        <label for="content">เนื้อหา</label>
-                                        <textarea class="form-control mb-3" name="content" id="content" cols="30" rows="10"></textarea>
-                                            @error('content')
+                                        <label for="content_menu">เนื้อหา</label>
+                                        <textarea class="form-control mb-3" name="content_menu" id="content_menu" cols="30" rows="10"></textarea>
+                                            @error('content_menu')
                                             <div class="my-1">
                                             <span class="text-danger py-2">{{$message}}</span>
                                             </div>
@@ -217,7 +225,33 @@
                                     </form>
                     
                                 </div>
+                        </div>                        
+                        <div class="toggle" id="div5" style="display: none">
+                            <div class="container">
+                                <div class="row">
+                                    <h4>มาตรฐานที่1</h4>
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">ไอดี</th>
+                                            <th scope="col">ชื่อเมนู</th>
+                                      
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach ($menu as $row)
+                                          <tr>
+                                            <th scope="row"></th>
+                                            <td colspan="2"></td>
+                                        
+                                          </tr>
+                                        @endforeach  
+                                        </tbody>
+                                      </table>
+                                </div>
+                            </div>
                         </div>
+
                 </div>
              
 
